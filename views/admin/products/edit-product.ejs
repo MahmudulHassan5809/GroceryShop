@@ -1,0 +1,93 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Default form subscription -->
+				<form class="text-center border border-light p-5" action="/admin-product/edit/<%= product._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+					<input type="hidden" name="_method" value="PUT">
+				    <p class="h4 mb-4">Edit Product</p>
+
+				    <% include ../../partials/message %>
+	                <% include ../../partials/validationMessages %>
+
+					<!-- Name -->
+				    <input
+				    type="text"
+				    name="name"
+				    class="form-control mb-4"
+				    placeholder="Name"
+				    value="<%= product.name %>"
+				    >
+
+				    <!-- Price -->
+				    <input
+				    type="text"
+				    name="price"
+				    class="form-control mb-4"
+				    placeholder="Price"
+				    value="<%= product.price %>"
+				    >
+
+				    <!-- SellingPrice -->
+				    <input
+				    type="text"
+				    name="sellingPrice"
+				    class="form-control mb-4"
+				    placeholder="SellingPrice"
+				    value="<%= product.sellingPrice %>"
+				    >
+
+				    <!-- Quantity -->
+				    <input
+				    type="text"
+				    name="quantity"
+				    class="form-control mb-4"
+				    placeholder="Quantity"
+				    value="<%= product.quantity %>"
+				    >
+
+				    <!-- Description -->
+				    <textarea
+				    name="description"
+				    id="summernote"
+				    class="form-control mb-4"
+				    placeholder="Description"
+				    >
+				    <%= product.description %>
+				    </textarea>
+
+				    <br>
+
+				    <select class="browser-default custom-select mb-4" name="category">
+						<% for (var i = 0; i < categories.length; i++) { -%>
+							<option value="<%= categories[i]._id %>"
+								<% if (JSON.stringify(product.category) === JSON.stringify(categories[i]._id)) { -%>
+									selected
+								<% } -%>
+							><%= categories[i].name %> </option>
+						<% } -%>
+					</select>
+
+					<!-- Image -->
+				    <input
+				    type="file"
+				    name="image"
+				    class="form-control mb-4"
+				    placeholder="Image"
+				    id="imgInp"
+				    >
+
+					<img id="blah" class="mb-4" width="200px" src="<%= product.image %>" alt="your image" />
+
+					<!-- Save in button -->
+				    <button class="btn btn-info btn-block" type="submit">Save</button>
+
+
+				</form>
+				<!-- Default form subscription -->
+			</div>
+		</div>
+	</div>
+</main>

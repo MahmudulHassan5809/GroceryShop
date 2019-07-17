@@ -1,0 +1,142 @@
+<% layout('layout') %>
+
+<main>
+
+	<div class="container mt-3">
+		<% include ../partials/message %>
+		<div id="code"></div>
+		<div class="row wow fadeIn mt-3" id="search_result">
+		</div>
+		<!-- News jumbotron -->
+		<div class="jumbotron text-center hoverable p-4">
+
+		  <!-- Grid row -->
+		  <div class="row">
+
+		    <!-- Grid column -->
+		    <div class="col-md-4 offset-md-1 mx-3 my-3">
+
+		      <!-- Featured image -->
+		      <div class="view overlay">
+		        <img src="<%= product.image %>" class="img-fluid" alt="Sample image for first version of blog listing">
+		        <a>
+		          <div class="mask rgba-white-slight"></div>
+		        </a>
+		      </div>
+
+		    </div>
+		    <!-- Grid column -->
+
+		    <!-- Grid column -->
+		    <div class="col-md-7 text-md-left ml-3 mt-3">
+
+		      <!-- Excerpt -->
+		      <a href="/products/<%= product.category.id %>" class="green-text">
+		        <h6 class="h6 pb-1"><i class="fas fa-desktop pr-1"></i> <%= product.category.name %></h6>
+		      </a>
+
+		      <h4 class="h4 mb-4"><%= product.name %></h4>
+
+		      <p class="font-weight-normal"><%- product.description %></p>
+		      <p class="font-weight-normal"><a><strong>Product Added</strong></a>, <%= moment(product.date, "YYYYMMDD").fromNow() %></p>
+
+		      <p>Total Rating Recived
+		      	<i class="fas fa-star-half-alt"></i> :<%= product.ratingNumber.length %>
+		      </p>
+
+		      <p>Total Stars
+		      	<i class="fas fa-star-half-alt"></i> :<%= product.ratingSum %>
+		      </p>
+
+		      <p>Average Stars
+		      	<span class="star" data-score="<%= avg %>"></span><br>
+		      	Average Rating <i class="fas fa-star-half-alt"></i> : <%= avg %> <br> Based on 5
+		      </p>
+
+			  <input type="hidden" value="<%= product._id %>" id="product_id" name="product_id">
+
+
+
+			  <!--<a href="/cart/add/<%= product.id %>" class="btn btn-success" id="cart">Add to Cart</a> !-->
+
+			  <button class="btn btn-success" id="add-to-cart">
+			  	Add to Cart
+			  </button>
+
+			  <a href="/wishlist/add/<%= product.id %>" class="btn btn-success" id="cart">Add to WishList</a>
+
+			  <a href="/review/product/<%= product._id %>" class="btn btn-success float-right">
+					Write Review
+			  </a>
+
+		    </div>
+		    <!-- Grid column -->
+
+		  </div>
+		  <!-- Grid row -->
+
+		</div>
+		<!-- News jumbotron -->
+
+		<!-- Similar Product Section -->
+		<div class="col-md-12 mb-5">
+			<h3>Similar Products For <%= product.category.name %></h3>
+			<hr class="hr-dark">
+			<div class="row">
+				<% for (var i = 0; i < similarProducts.length; i++) { -%>
+					<div class="col-md-4">
+					<div class="card" style="width: 18rem;">
+					  <img src="<%= similarProducts[i].image %>" class="card-img-top" height="200px" alt="...">
+					  <div class="card-body">
+					    <h5 class="card-title"><%= similarProducts[i].name %></h5>
+					    <p class="card-text"><%- clip(similarProducts[i].description, 50, { html: true, maxLines:2 }); %> </p>
+					    <a href="/product/<%= similarProducts[i].slug %>" class="btn btn-primary">Read More</a>
+					  </div>
+					</div>
+					</div>
+				<% } -%>
+
+			</div>
+		</div>
+		<!-- Similar Product Section -->
+
+		<!-- Riview Section -->
+		<div class="col-md-12">
+			<div class="pb-5">
+				<span class="float-left">Reviews (<%= product.ratingNumber.length %>)</span>
+				<a href="/review/product/<%= product._id %>" class="btn btn-success float-right">
+					Write Review
+				</a>
+			</div>
+			<% if (product.productRatings.length > 0) { -%>
+			<% product.productRatings.forEach( function(val, index) { -%>
+				<div class="row mt-5">
+
+					<div class="col-md-2">
+        	        	<img src="<%= val.userImage %>" class="rounded-circle img-fluid" width="200px"/>
+        	    	</div>
+	        	    <div class="col-md-10">
+	        	        <p>
+	        	            <span class="float-left"><strong><%= val.userName %></strong></span>
+	        	            <span class="star float-right" data-score="<%= val.userRating %>"></span>
+
+	        	       </p>
+	        	       <div class="clearfix"></div>
+	        	        <p><%= val.userReview %></p>
+
+	        	    </div>
+
+				</div>
+				<hr class="hr-dark">
+			<%  }); -%>
+			<% } else { -%>
+
+			<% } -%>
+		</div>
+		<!-- Riview Section -->
+
+	</div>
+
+</main>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ceab6019ddfffe4"></script>

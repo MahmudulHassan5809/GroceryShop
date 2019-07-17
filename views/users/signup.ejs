@@ -1,0 +1,64 @@
+<% layout('layout') %>
+
+<!-- Material form register -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto mt-4">
+            <% include ../partials/message %>
+            <% include ../partials/validationMessages %>
+            <div id="login-box">
+                <div class="left">
+
+                        <h1>Sign up</h1>
+
+                        <form action="/users/signup" method="POST">
+                            <input
+                            type="text"
+                            name="name"
+                            value="<% if (data != undefined) { -%> <%= data.name %> <% } -%>"
+                            placeholder="Name"
+                            class="login-box"/>
+
+                            <input
+                            type="text"
+                            name="email"
+                            placeholder="E-mail"
+                            class="login-box"
+                            value="<% if (data != undefined) { -%> <%= data.email %> <% } -%>" />
+
+                            <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            class="login-box" />
+
+                            <input
+                            type="text"
+                            name="phone"
+                            placeholder="Phone Number"
+                            class="login-box"
+                            value="<% if (data != undefined) { -%> <%= data.phone %> <% } -%>" />
+
+                            <textarea
+                            name="address"
+                            cols="28"
+                            placeholder="Address"
+                            class="login-box"
+                            ><%if(data!=undefined){-%><%= data.address %><%}-%></textarea>
+
+                            <input type="submit" class="login-box" name="signup_submit" value="Sign me up" />
+                        </form>
+                </div>
+
+                <div class="right">
+                        <span class="loginwith text-dark">Sign in with<br />social network</span>
+
+                        <a href="/auth/facebook" class="social-signin facebook">Log in with <i class="fab fa-facebook pr-1"></i></a>
+                        <a href="/auth/google"  class="social-signin google">Log in with <i class="fab fa-google pr-1"></i></a>
+                </div>
+                <div class="or">OR</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Material form register -->

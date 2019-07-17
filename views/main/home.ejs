@@ -1,0 +1,143 @@
+<% layout('layout') %>
+<!--Main layout-->
+<main>
+    <div class="container">
+        <% include ../partials/message %>
+        <% include ../partials/catNavbar %>
+
+
+
+        <!--Section: Products v.3-->
+        <section class="text-center mb-4">
+
+          <!--Grid row-->
+          <div class="row wow fadeIn" id="search_result">
+                <%
+                arrayAverage = (arr) => {
+                    return _.reduce(arr, (num1, num2) => {
+                        return num1 + num2;
+                    }, 0) / (arr.length === 0 ? 1 : arr.length);
+                }
+
+                %>
+
+                <% for (var i = 0; i < products.length; i++) { -%>
+                <% var total = arrayAverage(products[i].ratingNumber) %>
+                  <!--Grid column-->
+                  <div class="col-lg-3 col-sm-6 col-md-6 mb-4">
+
+                    <!--Card-->
+                    <div class="card"  style="height: 560px;">
+
+                      <!--Card image-->
+                      <div class="view overlay">
+                        <a href="/product/<%= products[i].slug %>">
+                          <img src="<%= products[i].image %>" class="card-img-top img-fluid" alt="<%= products[i].name %>">
+                        </a>
+                        <a>
+                          <div class="mask rgba-white-slight"></div>
+                        </a>
+                      </div>
+                      <!--Card image-->
+
+                      <!--Card content-->
+                      <div class="card-body elegant-color white-text rounded-bottom text-center">
+                        <!--Category & Title-->
+
+                        <h5 class="white-text">
+                          Category : <%= products[i].category.name %>
+                        </h5>
+
+                        <span class="star" data-score="<%= total %>"></span>
+
+                        <hr class="hr-light">
+                        <h5>
+                          <strong>
+                            <a href="/product/<%= products[i].slug %>" class="white-text"><%= products[i].name %>
+                              <span class="badge badge-pill danger-color"><%= products[i].quantity %></span>
+                            </a>
+                          </strong>
+                        </h5>
+
+                        <h4 class="font-weight-bold blue-text">
+                          <strong>৳ <%= products[i].sellingPrice %></strong>
+                        </h4>
+
+                        <!-- Text -->
+                        <p class="card-text white-text mb-4">
+
+                            <%- clip(products[i].description, 50, { html: true, maxLines:2 }); %>
+                        </p>
+
+
+
+                      <hr class="hr-light">
+                      <!-- Link -->
+                      <a href="/product/<%= products[i].slug %>" class="white-text d-flex justify-content-end"><h5>Read more <i class="fas fa-angle-double-right"></i></h5></a>
+
+                      </div>
+                      <!--Card content-->
+
+                    </div>
+                    <!--Card-->
+
+                  </div>
+                  <!--Grid column-->
+                <% } -%>
+
+          </div>
+          <!--Grid row-->
+
+          <!--Pagination row-->
+          <% if (typeof pages !== 'undefined') { -%>
+            <div class="row mt-5">
+              <div class="mx-auto">
+                <% if (pages > 1) { %>
+                  <nav aria-label="Page navigation example" class="mx-auto">
+                    <ul class="pagination pg-blue">
+                        <% if (currentPage > 1) { %>
+                            <li class="page-item"><a class="page-link info-color" href="/?page=1">First</a></li>
+                        <% } %>
+                        <% var i = 1;
+                        if (currentPage > 5) {
+                            i = +currentPage - 4;
+                        } %>
+                        <% if (currentPage > 1) { %>
+                            <li class="page-item"><a class="page-link" href="/?page=<%= currentPage - 1 %>">Previous</a></li>
+                        <% } %>
+                        <% if (i !== 1) { %>
+                            <li class="disabled page-item"><a class="page-link" href="#">...</a></li>
+                        <% } %>
+                        <% for (i; i<=pages; i++) { %>
+                            <% if (currentPage == i) { %>
+                                <li class="active page-item"><a class="page-link" href="/?page=<%= i %>"><%= i %></a></span></li>
+                            <% } else { %>
+                                <li class="page-item"><a class="page-link" href="/?page=<%= i %>"><%= i %></a></li>
+                            <% } %>
+                            <% if (i == (+currentPage + 4)) { %>
+                                <li class="disabled page-item"><a class="page-link" href="#">...</a></li>
+                            <% break; } %>
+                        <% } %>
+                        <% if (currentPage < pages) { %>
+                            <li class="page-item"><a class="page-link" href="/?page=<%= currentPage + 1 %>">Next</a></li>
+                        <% } %>
+                        <% if (currentPage != pages) { -%>
+                          <li class="page-item"><a class="page-link danger-color" href="/?page=<%= pages %>">Last</a></li>
+                        <% } -%>
+
+                    </ul>
+                  </nav>
+                <% } %>
+              </div>
+            </div>
+          <% } -%>
+
+          <!--Pagination row-->
+
+        </section>
+        <!--Section: Products v.3-->
+  </div>
+</main>
+<!--Main layout-->
+
+

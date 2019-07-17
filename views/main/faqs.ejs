@@ -1,0 +1,17 @@
+<% layout('layout') %>
+
+<main>
+	<div class="container">
+		<div class="row wow fadeIn mt-3" id="search_result">
+		</div>
+		<div class="row">
+			<div class="col-md-12 mt-5">
+				<% for (var i = 0; i < faqs.length; i++) { -%>
+					<p>Question No <%= i+1 %>: <%= faqs[i].question%></p>
+					<p>Answer No <%= i+1 %>: <%= faqs[i].answer%></p>
+					<hr class="hr-dark">
+				<% } -%>
+			</div>
+		</div>
+	</div>
+</main>

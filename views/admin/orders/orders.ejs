@@ -1,0 +1,107 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+  <div class="container">
+  	<div class="row">
+  		<div class="col-md-12">
+  			<table id="dtBasicExample" class="table table-responsive table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                  <thead>
+                      <tr>
+                          <th class="th-sm">Invoice No
+                          </th>
+                          <th class="th-sm">Name
+                          </th>
+                          <th class="th-sm">Phone
+                          </th>
+                          <th class="th-sm">Address
+                          </th>
+                          <th class="th-sm">Email
+                          </th>
+                          <th class="th-sm">Prtoduct
+                          </th>
+                          <th class="th-sm">Qty
+                          </th>
+                          <th class="th-sm">Price
+                          </th>
+                          <th class="th-sm">Paid
+                          </th>
+
+                          <th class="th-sm">Delivered
+                          </th>
+
+                          <th class="th-sm">Order Date
+                          </th>
+
+                          <th class="th-sm">Invoice
+                          </th>
+                          <th class="th-sm">Delete
+                          </th>
+
+                      </tr>
+                  </thead>
+                  <tbody>
+                  <% for (var i = 0; i < orders.length; i++) { -%>
+				    <% for (var j = 0; j < _.size(orders[i].order); j++) { -%>
+				    <tr>
+                        <td><%= orders[i].invoice %></td>
+                        <td><%= orders[i].user.name %></td>
+                        <td><%= orders[i].phone %></td>
+    					<td><%= orders[i].address %></td>
+    					<td><%= orders[i].email %></td>
+    					<td><%= orders[i].order[j].title %></td>
+    					<td><%= orders[i].order[j].qty %></td>
+    					<td><%= orders[i].order[j].price * orders[i].order[j].qty  %></td>
+    					<% if (!orders[i].ispaid) { -%>
+    					<td>
+    						<a href="/admin-order/makepaid/<%= orders[i]._id %>" type="button" class="btn btn-danger">No</a>
+    					</td>
+    					  <% } else { -%>
+                        <td>
+      						<button type="button" class="btn btn-info"><i class="fas fa-check"></i></button>
+                        </td>
+                			<% } -%>
+
+
+                        <% if (!orders[i].isdeliver) { -%>
+                        <td>
+                            <form action="/admin-order/delivery/<%= orders[i]._id %>?_method=PUT" method="POST">
+                                <input type="hidden" name="_method" value="PUT">
+                                <select class="form-control" name="employee">
+
+                                <% employees.forEach( function(value, index) { %>
+                                    <option value="<%= value._id %>"><%= value.name %></option>
+                                <% }); %>
+                                </select>
+                            <br>
+                            <button type="submit" class="btn btn-danger">NO</button>
+                            </form>
+                        </td>
+                            <% } else { -%>
+                        <td>
+                        <button type="button" class="btn btn-info"><i class="fas fa-check"></i></button>
+                        </td>
+                        <% } -%>
+
+
+                        <td>
+                        <%= moment(orders[i].date, "YYYYMMDD").fromNow() %>
+                        </td>
+                        <td>
+                            <a href="/invoice/<%= orders[i]._id%>.pdf" target="_blank"><%= orders[i].invoice %> Read</a>
+                        </td>
+                        <td>
+                              <form style=" display: inline;" method="POST" action="/admin-order/delete/<%= orders[i]._id %>?_method=DELETE">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button onclick="return confirm('Are You Sure')" class="btn btn-danger mb-3"><i class="fas fa-trash"></i></button>
+                              </form>
+                        </td>
+            		</tr>
+                    	<% } -%>
+                    <% } -%>
+
+                  </tbody>
+              </table>
+  		</div>
+  	</div>
+  </div>
+</main>

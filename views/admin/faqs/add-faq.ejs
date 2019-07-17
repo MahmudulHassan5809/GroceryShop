@@ -1,0 +1,44 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Default form subscription -->
+				<form class="text-center border border-light p-5" action="/admin-faq/add-faq" method="POST">
+
+				    <p class="h4 mb-4">Add category</p>
+
+
+	                <% include ../../partials/validationMessages %>
+
+					<!-- Question -->
+				    <input
+				    type="text"
+				    name="question"
+				    class="form-control mb-4"
+				    placeholder="Question"
+				    value="<% if (data != undefined) { -%> <%= data.question %> <% } -%>"
+	                >
+
+	                <!-- Answer -->
+				    <input
+				    type="text"
+				    name="answer"
+				    class="form-control mb-4"
+				    placeholder="Answer"
+				    value="<% if (data != undefined) { -%> <%= data.answer %> <% } -%>"
+	                >
+
+
+
+				    <!-- Save in button -->
+				    <button class="btn btn-info btn-block" type="submit">Save</button>
+
+
+				</form>
+				<!-- Default form subscription -->
+			</div>
+		</div>
+	</div>
+</main>

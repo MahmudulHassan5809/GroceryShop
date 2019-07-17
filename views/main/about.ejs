@@ -1,0 +1,51 @@
+<% layout('layout') %>
+
+<main>
+	<div class="container">
+		<div class="row wow fadeIn mt-3" id="search_result">
+		</div>
+		<div class="row">
+			<div class="col-md-12 mt-5">
+				<%- shopInfo.about %>
+
+				<hr class="hr-dark">
+				<h3 class="blue-text text-center">Location</h3>
+				<div id="map"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+
+
+<script type="text/javascript">
+		function initMap() {
+			  	var options = {
+			        zoom:8,
+			        center:{lat:23.7494,lng:90.3831}
+			    }
+
+			    // New map
+			    var map = new google.maps.Map(document.getElementById('map'), options);
+
+			    var marker = new google.maps.Marker({
+			        position:{lat:23.7494,lng:90.3831},
+			        map:map,
+			        icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+			    });
+
+				var infoWindow = new google.maps.InfoWindow({
+			        content:'<h5>শাম্মি গ্রোসারি শপ</h5>'
+			    });
+
+			    marker.addListener('click', function(){
+			        infoWindow.open(map, marker);
+			    });
+
+			}
+
+	</script>
+
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDboB-NH7QTHBicpj7X9-B8bQVt-JeLulc&callback=initMap">
+	</script>

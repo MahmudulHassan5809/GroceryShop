@@ -1,0 +1,102 @@
+<% layout('adminLayout') %>
+
+
+<main class="pt-5 mx-lg-5">
+	<div class="container">
+
+		<div class="row wow fadeIn">
+			<!--Grid column-->
+	        <div class="col-lg-6 col-md-6 mb-4">
+
+		        <!--Card-->
+		        <div class="card">
+					<!-- Card header -->
+		            <div class="card-header bg-dark text-white">Number Of Products For Each Category</div>
+
+		            <!--Card content-->
+		            <div class="card-body">
+						<span id="eachCategoryProducts" hidden><%= JSON.stringify(eachCategoryProducts); %></span>
+		            	<canvas id="myChart"></canvas>
+
+		         	</div>
+
+		        </div>
+		        <!--/.Card-->
+
+	        </div>
+	        <!--Grid column-->
+
+	        <!--Grid column-->
+	        <div class="col-lg-6 col-md-6 mb-4">
+
+		        <!--Card-->
+		        <div class="card">
+
+		            <!-- Card header -->
+		            <div class="card-header bg-dark text-white">Order Per Month</div>
+
+		            <!--Card content-->
+		            <div class="card-body bg-warning">
+						<span id="perDayOrder" hidden><%= JSON.stringify(perDayOrder); %></span>
+		            	<canvas id="lineChart"></canvas>
+
+		            </div>
+
+		        </div>
+		        <!--/.Card-->
+
+	        </div>
+	        <!--Grid column-->
+		</div>
+
+
+		<div class="row wow fadeIn">
+			<!--Grid column-->
+	        <div class="col-lg-6 col-md-6 mb-4">
+
+		        <!--Card-->
+		        <div class="card">
+					<!-- Card header -->
+		            <div class="card-header bg-dark text-white">Product Quantity</div>
+
+		            <!--Card content-->
+		            <div class="card-body bg-light">
+						<span id="eachProductQuantity" hidden><%= JSON.stringify(eachProductQuantity); %></span>
+		            	<canvas id="myChart2"></canvas>
+
+		         	</div>
+
+		        </div>
+		        <!--/.Card-->
+
+	        </div>
+	        <!--Grid column-->
+
+	        <!--Grid column-->
+	        <div class="col-lg-6 col-md-6 mb-4">
+
+		        <!--Card-->
+		        <div class="card">
+
+		            <!-- Card header -->
+		            <div class="card-header bg-dark text-white">Profit Per Month</div>
+
+		            <!--Card content-->
+		            <div class="card-body bg-info">
+						<span id="perMonthProfit" hidden><%= JSON.stringify(perMonthProfit); %></span>
+		            	<canvas id="pieChart"></canvas>
+
+		            </div>
+
+		        </div>
+		        <!--/.Card-->
+
+	        </div>
+	        <!--Grid column-->
+		</div>
+
+
+	</div>
+</main>
+
+

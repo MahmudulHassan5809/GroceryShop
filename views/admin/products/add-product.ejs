@@ -1,0 +1,92 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Default form subscription -->
+				<form class="text-center border border-light p-5" action="/admin-product/add-product" method="POST" enctype="multipart/form-data">
+
+				    <p class="h4 mb-4">Add Product</p>
+
+				    <% include ../../partials/message %>
+	                <% include ../../partials/validationMessages %>
+
+					<!-- Name -->
+				    <input
+				    type="text"
+				    name="name"
+				    class="form-control mb-4"
+				    placeholder="Name"
+				    value="<% if (data != undefined) { -%> <%= data.name %> <% } -%>"
+				    >
+
+				    <!-- Price -->
+				    <input
+				    type="text"
+				    name="price"
+				    class="form-control mb-4"
+				    placeholder="Price"
+				    value="<% if (data != undefined) { -%> <%= data.price %> <% } -%>"
+				    >
+
+				    <!-- SellingPrice -->
+				    <input
+				    type="text"
+				    name="sellingPrice"
+				    class="form-control mb-4"
+				    placeholder="SellingPrice"
+				    value="<% if (data != undefined) { -%> <%= data.sellingPrice %> <% } -%>"
+				    >
+
+				    <!-- Quantity -->
+				    <input
+				    type="text"
+				    name="quantity"
+				    class="form-control mb-4"
+				    placeholder="Quantity"
+				    value="<% if (data != undefined) { -%> <%= data.quantity %> <% } -%>"
+				    >
+
+				    <!-- Description -->
+				    <textarea
+				    name="description"
+				    id="summernote"
+				    class="form-control mb-4"
+				    placeholder="Description"
+				    >
+				    <% if (data != undefined) { -%> <%= data.description %> <% } -%>
+				    </textarea>
+
+				    <br>
+
+				    <select class="browser-default custom-select mb-4" name="category">
+						<option value="" disabled selected>Choose Category</option>
+						<% for (var i = 0; i < categories.length; i++) { -%>
+							<option value="<%= categories[i]._id %>"><%= categories[i].name %> </option>
+						<% } -%>
+					</select>
+
+					<!-- Image -->
+				    <input
+				    type="file"
+				    name="image"
+				    class="form-control mb-4"
+				    placeholder="Image"
+				    id="imgInp"
+				    >
+
+					<img id="blah" class="mb-4" width="200px" src="#" alt="your image" />
+
+					<!-- Save in button -->
+				    <button class="btn btn-info btn-block" type="submit">Save</button>
+
+
+				</form>
+				<!-- Default form subscription -->
+			</div>
+		</div>
+	</div>
+</main>
+
+

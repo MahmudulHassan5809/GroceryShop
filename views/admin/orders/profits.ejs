@@ -1,0 +1,63 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+  <div class="container">
+  	<div class="row">
+  		<div class="col-md-12">
+  			<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                  <thead>
+                      <tr>
+                          <th class="th-sm">Invoice No
+                          </th>
+                          <th class="th-sm">Product
+                          </th>
+                          <th class="th-sm">Actual Price
+                          </th>
+                          <th class="th-sm">Selling Price
+                          </th>
+                          <th class="th-sm">qty
+                          </th>
+                          <th class="th-sm">Profit Per One
+                          </th>
+                          <th class="th-sm">Total profit
+                          </th>
+                          <th class="th-sm">Money Recived
+                          </th>
+                          <th class="th-sm">Date
+                          </th>
+
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <% for (var i = 0; i < profits.length; i++) { -%>
+
+  					<tr>
+                        <td><%= profits[i].order.invoice %></td>
+                        <td><%= profits[i].product.name %></td>
+                        <td><%= profits[i].product.price %></td>
+                        <td><%= profits[i].product.sellingPrice %></td>
+                        <td><%= profits[i].qty %></td>
+                        <td><%= profits[i].profit / profits[i].qty %></td>
+  					  <td><%= profits[i].profit %></td>
+                        <% if (!profits[i].order.ispaid) { -%>
+                        <td>
+                          <button  type="button" class="btn btn-danger">No</button>
+                        </td>
+                        <% } else { -%>
+                        <td>
+                          <button type="button" class="btn btn-info">Yes</button>
+                        </td>
+                        <% } -%>
+                        <td>
+                          <%= moment(profits[i].date, "YYYYMMDD").fromNow() %>
+                        </td>
+                      </tr>
+
+                    <% } -%>
+
+                  </tbody>
+              </table>
+  		</div>
+  	</div>
+  </div>
+</main>

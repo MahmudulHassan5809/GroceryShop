@@ -1,0 +1,57 @@
+<!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg bg-dark navbar-dark white scrolling-navbar">
+      <div class="container-fluid">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="/admin/dashboard">
+          <strong class="blue-text">SGroceryShop</strong>
+        </a>
+
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+	            <a class="nav-link waves-effect" href="/admin/dashboard">Home
+	            </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="/admin-category/categories">Category
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="/admin-product/products">Product
+              </a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link waves-effect" target="_blank" href="/">View Site
+              </a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav nav-flex-icons mr-5">
+            <li class="nav-item">
+              <% if (adminName) { -%>
+                <a href="/admin/profile" class="nav-link waves-effect"><i class="fas fa-user"></i> Welcome <%= adminName %></a>
+              <% } -%>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/logout/" class="nav-link waves-effect" >
+                <i class="fas fa-user"></i> Logout
+              </a>
+            </li>
+        </ul>
+
+        </div>
+
+      </div>
+    </nav>
+    <!-- Navbar -->

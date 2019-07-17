@@ -1,0 +1,155 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Default form subscription -->
+				<form class="border border-light p-5" action="/admin-shopinfo/addinfo" method="POST">
+
+				    <p class="h4 mb-4">Add Info</p>
+
+				    <% include ../../partials/validationMessages %>
+
+					<!-- Name -->
+				    <input
+				    type="text"
+				    name="name"
+				    class="form-control mb-4"
+				    placeholder="ShopName"
+				    value="<% if (data != undefined) { -%> <%= data.name %> <% } -%>"
+	                >
+
+	                <textarea
+	                name="sologan"
+	                class="form-control mb-4"
+	                placeholder="Shop Sologan"
+	                id="summernote"
+	                >
+	                	<% if (data != undefined) { -%> <%= data.sologan %> <% } -%>
+	                </textarea>
+
+	                <br>
+
+
+	                <textarea
+	                name="about"
+	                class="form-control mb-4"
+	                placeholder="Shop About"
+	                id="summernote"
+	                >
+	                	<% if (data != undefined) { -%> <%= data.about %> <% } -%>
+	                </textarea>
+
+	                <br>
+
+	                <input
+				    type="text"
+				    name="address"
+				    class="form-control mb-4"
+				    placeholder="Address"
+				    value="<% if (data != undefined) { -%> <%= data.address %> <% } -%>"
+	                >
+
+	                <input
+				    type="text"
+				    name="email"
+				    class="form-control mb-4"
+				    placeholder="Email"
+				    value="<% if (data != undefined) { -%> <%= data.email %> <% } -%>"
+	                >
+
+	                <input
+				    type="text"
+				    name="phone"
+				    class="form-control mb-4"
+				    placeholder="Phone"
+				    value="<% if (data != undefined) { -%> <%= data.phone %> <% } -%>"
+	                >
+
+	                <input
+				    type="text"
+				    name="fax"
+				    class="form-control mb-4"
+				    placeholder="Fax"
+				    value="<% if (data != undefined) { -%> <%= data.fax %> <% } -%>"
+	                >
+					<hr>
+					<hr>
+					<h5>Social Input Is Not Required</h5>
+					<div class="input-group mb-3">
+						<input
+						name="facebook"
+						type="text"
+						class="form-control"
+						placeholder="Facebook Link"
+						value="<% if (data != undefined) { -%> <%= data.facebook %> <% } -%>">
+						<div class="input-group-append">
+						    <span class="input-group-text"><i class="fab fa-facebook-f"></i></span>
+						</div>
+					</div>
+
+					<div class="input-group mb-3">
+						<input
+						name="twitter"
+						type="text"
+						class="form-control"
+						placeholder="Twitter Link"
+						value="<% if (data != undefined) { -%> <%= data.twitter %> <% } -%>">
+						<div class="input-group-append">
+						    <span class="input-group-text"><i class="fab fa-twitter"></i></span>
+						</div>
+					</div>
+
+
+					<div class="input-group mb-3">
+						<input
+						name="google"
+						type="text"
+						class="form-control"
+						placeholder="Google Link"
+						value="<% if (data != undefined) { -%> <%= data.google %> <% } -%>">
+						<div class="input-group-append">
+						    <span class="input-group-text"><i class="fab fa-google"></i></span>
+						</div>
+					</div>
+
+					<div class="input-group mb-3">
+						<input
+						name="linkedin"
+						type="text"
+						class="form-control"
+						placeholder="LinkedIn Link"
+						value="<% if (data != undefined) { -%> <%= data.linkedin %> <% } -%>">
+						<div class="input-group-append">
+						    <span class="input-group-text"><i class="fab fa-linkedin"></i></span>
+						</div>
+					</div>
+
+					<div class="input-group mb-3">
+						<input
+						name="instagram"
+						type="text"
+						class="form-control"
+						placeholder="Instagram Link"
+						value="<% if (data != undefined) { -%> <%= data.instagram %> <% } -%>">
+						<div class="input-group-append">
+						    <span class="input-group-text"><i class="fab fa-instagram"></i></span>
+						</div>
+					</div>
+
+
+
+
+
+
+				    <!-- Save in button -->
+				    <button class="btn btn-info btn-block" type="submit">Save</button>
+
+
+				</form>
+				<!-- Default form subscription -->
+			</div>
+		</div>
+	</div>
+</main>

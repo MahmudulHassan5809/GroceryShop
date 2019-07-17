@@ -1,0 +1,48 @@
+<% layout('adminLayout') %>
+
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<form class="text-center border border-light p-5" action="/admin-employee/edit-employee/<%= employee._id %>?_method=PUT" method="POST">
+					<input type="hidden" name="_method" value="PUT">
+				    <p class="h4 mb-4">Edit Employee</p>
+
+				    <% include ../../partials/message %>
+	                <% include ../../partials/validationMessages %>
+
+					<!-- Name -->
+				    <input
+				    type="text"
+				    name="name"
+				    class="form-control mb-4"
+				    placeholder="Name"
+				    value="<%= employee.name %>"
+				    >
+
+				    <!-- Email -->
+				    <input
+				    type="text"
+				    name="email"
+				    class="form-control mb-4"
+				    placeholder="Email"
+				    value="<%= employee.email %>"
+				    >
+
+				    <!-- Phone -->
+				    <input
+				    type="text"
+				    name="phone"
+				    class="form-control mb-4"
+				    placeholder="phone"
+				    value="<%= employee.phone %>"
+				    >
+
+
+				    <button class="btn btn-info btn-block" type="submit">Save</button>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</main>

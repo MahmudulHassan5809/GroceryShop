@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title %></title>
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/css/font.css">
+
+	<!-- Bootstrap core CSS -->
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Material Design Bootstrap -->
+	<link href="/css/mdb.min.css" rel="stylesheet">
+
+	<link href="/css/datatables.min.css" rel="stylesheet">
+
+	<link href="/css/search.css" rel="stylesheet">
+
+	<link href="/css/style.min.css" rel="stylesheet">
+
+	<link href="/css/style.css" rel="stylesheet">
+
+	<style type="text/css">
+    .carousel {
+      height: 60vh;
+    }
+
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+	<% include ./partials/navbar %>
+
+	<% include ./partials/carousel %>
+
+
+	<%- body -%>
+
+
+
+	<% include ./partials/footer %>
+
+	<!-- JQuery -->
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="/js/popper.js"></script>
+
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="/js/mdb.min.js"></script>
+
+	<script type="text/javascript" src="/js/jquery.raty.js"></script>
+
+
+	<script type="text/javascript" src="/js/rating.js"></script>
+
+
+
+
+
+
+	<!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="/js/datatables.min.js"></script>
+
+
+	 <script>
+			$(document).ready(function() {
+			   $.fn.raty.defaults.path = '/img/';
+			   $('.star').raty({
+			       readOnly : true,
+			       score: function(data){
+			            return $(this).attr('data-score');
+			       }
+			    });
+			});
+		</script>
+
+	<script src="/js/algoliasearch.min.js"></script>
+    <script src="/js/autocomplete.min.js"></script>
+
+    <script src="/js/algoliaSearch.js"></script>
+
+	<script type="text/javascript" src="/js/contact.js"></script>
+	<script type="text/javascript" src="/js/custom.js"></script>
+
+</body>
+</html>

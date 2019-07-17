@@ -1,0 +1,20 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<p>Name : <%= contact.name %></p>
+				<p>Phone : <%= contact.user.phone %></p>
+				<p>Email : <%= contact.email %></p>
+				<p>Subject : <%= contact.subject %></p>
+				<hr>
+				<hr>
+				<p>
+					<%= contact.message %>
+				</p>
+			</div>
+		</div>
+	</div>
+
+</main>

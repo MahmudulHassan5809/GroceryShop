@@ -1,0 +1,47 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<form class="text-center border border-light p-5" action="/admin-employee/add-employee" method="POST">
+					<p class="h4 mb-4">Add Employee</p>
+
+					<% include ../../partials/message %>
+	                <% include ../../partials/validationMessages %>
+
+	                <!-- Name -->
+				    <input
+				    type="text"
+				    name="name"
+				    class="form-control mb-4"
+				    placeholder="Name"
+				    value="<% if (data != undefined) { -%> <%= data.name %> <% } -%>"
+				    >
+
+				    <!-- Phone -->
+				    <input
+				    type="text"
+				    name="phone"
+				    class="form-control mb-4"
+				    placeholder="Phone"
+				    value="<% if (data != undefined) { -%> <%= data.phone %> <% } -%>"
+				    >
+
+				    <!-- Email -->
+				    <input
+				    type="text"
+				    name="email"
+				    class="form-control mb-4"
+				    placeholder="Email"
+				    value="<% if (data != undefined) { -%> <%= data.email %> <% } -%>"
+				    >
+
+				    <!-- Save in button -->
+				    <button class="btn btn-info btn-block" type="submit">Save</button>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</main>

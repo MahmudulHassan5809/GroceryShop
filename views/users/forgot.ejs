@@ -1,0 +1,52 @@
+<% layout('layout') %>
+
+<!-- Material form register -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card mt-3">
+
+                <h5 class="card-header info-color white-text text-center py-4 mb-2">
+                    <strong>Reset Password</strong>
+                </h5>
+
+                <!--Card content-->
+                <div class="card-body px-lg-5 pt-0">
+                    <% include ../partials/message %>
+                    <% include ../partials/validationMessages %>
+                    <!-- Form -->
+                    <form class="text-center" action="/users/forgot" method="POST"  style="color: #757575;">
+
+
+
+                        <!-- E-mail -->
+                        <div class="md-form mt-0">
+                            <input
+                            type="email"
+                            id="materialRegisterFormEmail"
+                            name="email"
+                            class="form-control">
+                            <label for="materialRegisterFormEmail"
+                            value="<% if (typeof data !== 'undefined') { -%> <%= data.email %> <% } -%>"
+                            >E-mail</label>
+                        </div>
+
+
+
+
+
+                        <!-- Sign up button -->
+                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Send Mail</button>
+
+
+
+
+                    </form>
+                    <!-- Form -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Material form register -->

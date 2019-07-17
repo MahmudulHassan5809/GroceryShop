@@ -1,0 +1,62 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<h3>Add Admin Profile</h3>
+
+
+				<hr>
+
+
+				<form action="/admin/add-admin" method="POST">
+
+
+	                <% include ../../partials/validationMessages %>
+
+					<!-- Name -->
+					<input
+				    type="text"
+				    name="name"
+				    class="form-control mb-4"
+				    placeholder="Name"
+					value="<% if (data != undefined) { -%> <%= data.name %> <% } -%>"
+				    >
+
+
+			    	<!-- Role -->
+				    <select class="browser-default custom-select mb-4" name="role">
+						<option value="" disabled selected>Choose Role</option>
+						<% for (var i = 0; i < roles.length; i++) { -%>
+							<option value="<%= roles[i].name %>"><%= roles[i].name %> </option>
+						<% } -%>
+					</select>
+
+
+				    <!-- Email -->
+				    <input
+				    type="text"
+				    name="email"
+				    class="form-control mb-4"
+				    placeholder="Email"
+					value="<% if (data != undefined) { -%> <%= data.email %> <% } -%>"
+				    >
+
+				    <!-- Email -->
+				    <input
+				    type="password"
+				    name="password"
+				    class="form-control mb-4"
+				    placeholder="Password"
+
+				    >
+
+					<!-- Save in button -->
+				    <button class="btn btn-info btn-block" type="submit">Add Admin</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</main>

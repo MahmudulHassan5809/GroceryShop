@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title %></title>
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+	<!-- Bootstrap core CSS -->
+  	<link href="/admin/css/bootstrap.min.css" rel="stylesheet">
+
+  	<!-- Material Design Bootstrap -->
+  	<link href="/admin/css/mdb.min.css" rel="stylesheet">
+
+  	<!-- Your custom styles (optional) -->
+  	<link href="/admin/css/style.min.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto">
+				<!-- Default form login -->
+				<form class="text-center border border-light p-5" action="/admin/login" method="POST">
+					<% include ../../partials/message %>
+				    <p class="h4 mb-4">Admin Sign in</p>
+
+
+				    <!-- Email -->
+				    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" name="email" placeholder="E-mail">
+
+
+				    <!-- Password -->
+				    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" name="password" placeholder="Password">
+
+				    <!-- Sign in button -->
+				    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+				</form>
+				<!-- Default form login -->
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<!-- JQuery -->
+  	<script type="text/javascript" src="/admin/js/jquery-3.4.0.min.js"></script>
+
+  	<!-- Bootstrap tooltips -->
+  	<script type="text/javascript" src="/admin/js/popper.min.js"></script>
+
+  	<!-- Bootstrap core JavaScript -->
+  	<script type="text/javascript" src="/admin/js/bootstrap.min.js"></script>
+
+  	<!-- MDB core JavaScript -->
+  	<script type="text/javascript" src="/admin/js/mdb.min.js"></script>
+
+
+
+</body>
+</html>

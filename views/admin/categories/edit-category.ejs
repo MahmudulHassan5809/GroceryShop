@@ -1,0 +1,35 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Default form subscription -->
+				<form class="text-center border border-light p-5" action="/admin-category/edit/<%= category._id %>?_method=PUT" method="POST">
+					<input type="hidden" name="_method" value="PUT">
+				    <p class="h4 mb-4">Edit category</p>
+
+					<% include ../../partials/message %>
+	                  <% include ../../partials/validationMessages %>
+
+					<!-- Name -->
+				    <input
+				    type="text"
+				    name="name"
+				    class="form-control mb-4"
+				    placeholder="Name"
+				    value="<%= category.name %>"
+	                >
+
+
+
+				    <!-- Save in button -->
+				    <button class="btn btn-info btn-block" type="submit">Edit</button>
+
+
+				</form>
+				<!-- Default form subscription -->
+			</div>
+		</div>
+	</div>
+</main>

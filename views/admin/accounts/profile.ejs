@@ -1,0 +1,58 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div>
+					<h3 class="float-left">Admin Profile</h3>
+					<h3>
+						<a href="/admin/password-change" class="btn btn-info float-right">Change Password</a>
+					</h3>
+				</div>
+
+				<br>
+
+
+				<form action="/admin/profile" method="POST">
+
+					<!-- Name -->
+					<input
+				    type="text"
+				    name="name"
+				    class="form-control mb-4"
+				    placeholder="Name"
+				    required
+				    value="<%= admin.name %>"
+				    >
+
+				    <% if (admin.role == 'main') { -%>
+				    <!-- Role -->
+				    <select class="browser-default custom-select mb-4" name="role">
+						<% for (var i = 0; i < roles.length; i++) { -%>
+							<option value="<%= roles[i]._id %>"
+								<% if (JSON.stringify(admin.role) === JSON.stringify(roles[i].name)) { -%>
+									selected
+								<% } -%>
+							><%= roles[i].name %> </option>
+						<% } -%>
+					</select>
+				    <% } -%>
+
+				    <!-- Email -->
+				    <input
+				    type="text"
+				    name="email"
+				    class="form-control mb-4"
+				    placeholder="Email"
+				    required
+				    value="<%= admin.email %>"
+				    >
+
+					<!-- Save in button -->
+				    <button class="btn btn-info btn-block" type="submit">Edit Profile</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</main>

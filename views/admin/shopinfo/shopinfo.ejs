@@ -1,0 +1,33 @@
+<% layout('adminLayout') %>
+
+<main class="pt-5 mx-lg-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+	            <div class="table-add mb-3 mr-2">
+	                <a href="/admin-shopinfo/addinfo" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a>
+	            </div>
+
+					<% if (shopInfo) { -%>
+
+
+					<h1>Info Details</h1>
+					<hr>
+					<p>
+						<b>ShopName</b> : <%= shopinfo.name %>
+					</p>
+					<p>
+						<b>Slogoan</b> : <%= shopinfo.sologan %>
+					</p>
+					<p>
+						<b>Address</b> : <%= shopinfo.address %>
+					</p>
+
+					<p>
+						<a href="/admin-shopinfo/edit/<%= shopinfo._id %>" class="btn btn-success btn-sm">Edit Shop Info</a>
+					</p>
+					<% } -%>
+	        </div>
+		</div>
+	</div>
+</main>

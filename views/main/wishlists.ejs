@@ -1,0 +1,107 @@
+<% layout('layout') %>
+<!--Main layout-->
+<main>
+    <div class="container mt-5">
+        <% include ../partials/message %>
+        <% include ../partials/catNavbar %>
+
+        <!--Section: Products v.3-->
+        <section class="text-center mb-4">
+          <% if (wishlists.length > 0) { -%>
+          <form style=" display: inline;" method="POST" action="/wishlist/clear?_method=DELETE">
+          <input type="hidden" name="_method" value="DELETE">
+          <button onclick="return confirm('Are You Sure')" class="btn btn-danger mb-3">Clear WishLists</button>
+          </form>
+          <!--Grid row-->
+          <div class="row wow fadeIn" id="search_result">
+               <%
+                arrayAverage = (arr) => {
+                    return _.reduce(arr, (num1, num2) => {
+                        return num1 + num2;
+                    }, 0) / (arr.length === 0 ? 1 : arr.length);
+                }
+                %>
+
+                <% for (var i = 0; i < wishlists.length; i++) { -%>
+                <% var total = arrayAverage(wishlists[i].product.ratingNumber) %>
+                  <!--Grid column-->
+                  <div class="col-lg-3 col-md-6 mb-4">
+
+                    <!--Card-->
+                    <div class="card"  style="height: 560px;">
+
+                      <!--Card image-->
+                      <div class="view overlay">
+                        <a href="/product/<%= wishlists[i].product.slug %>">
+                          <img src="<%= wishlists[i].product.image %>" class="card-img-top"
+                          alt="">
+                        </a>
+                        <a>
+                          <div class="mask rgba-white-slight"></div>
+                        </a>
+                      </div>
+                      <!--Card image-->
+
+                      <!--Card content-->
+                      <div class="card-body elegant-color white-text rounded-bottom text-center">
+                        <!--Category & Title-->
+
+                        <h5 class="white-text">
+                          Category :
+                        </h5>
+
+                        <span class="star" data-score="<%= total %>"></span>
+
+                        <hr class="hr-light">
+                        <h5>
+                          <strong>
+                            <a href="/product/<%= wishlists[i].product.slug %>" class="white-text"><%= wishlists[i].product.name %>
+                              <span class="badge badge-pill danger-color"><%= wishlists[i].product.quantity %></span>
+                            </a>
+                          </strong>
+                        </h5>
+
+                        <h4 class="font-weight-bold blue-text">
+                          <strong>৳ <%= wishlists[i].product.sellingPrice %></strong>
+                        </h4>
+
+                        <!-- Text -->
+                        <p class="card-text white-text mb-4">
+                          <%- clip(wishlists[i].product.description, 50, { html: true, maxLines:2 }); %>
+                        </p>
+
+
+
+                      <hr class="hr-light">
+                      <!-- Link -->
+                      <a href="/product/<%= wishlists[i].product.slug %>" class="white-text d-flex justify-content-end"><h5>Read more <i class="fas fa-angle-double-right"></i></h5></a>
+
+                      </div>
+                      <!--Card content-->
+
+                    </div>
+                    <!--Card-->
+
+                  </div>
+                  <!--Grid column-->
+                <% } -%>
+
+          </div>
+          <!--Grid row-->
+          <% } else { -%>
+              <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h2 class="display-4">আপনার  ইচ্ছেতালিকা খালি</h2>
+                  <p class="lead">নতুন করে আপনার পছন্দের  পণ্য ইচ্ছে তালিকায় অন্তর্ভুক্ত করুন এবং  প্রয়োজনীয়  পণ্য  ক্রয় করেন।  ধন্যবাদ।</p>
+                </div>
+              </div>
+          <% } -%>
+
+
+        </section>
+        <!--Section: Products v.3-->
+  </div>
+</main>
+<!--Main layout-->
+
+
