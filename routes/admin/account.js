@@ -16,7 +16,7 @@ const { validateAdminMiddleware }  = require('../../middlewares/validateAdminMid
 router.get('/create-admin',(req,res,next) => {
 	const admin = new Admin();
 
-	admin.email = 'admin@gmail.com';
+	admin.email = 'mahmudul@gmail.com';
 	admin.name = 'admin';
 	admin.role = 'main';
 	admin.password = '123456';
