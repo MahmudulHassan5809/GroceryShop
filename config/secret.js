@@ -1,7 +1,7 @@
 module.exports = {
 	auth:{
-		user: 'Your Email',
-		pass: 'Your Password'
+		user: 'mahmudul15-5809@diu.edu.bd',
+		pass: 'puanffeswvyrlzed'
 	},
 	googleClientID: '130272441787-agnuhuehdbn9tmbcukjkg3ii5v4qfjnn.apps.googleusercontent.com',
 	googleClientSecret: 'tOo32izKzFEDg7rRghAGI0IX',
