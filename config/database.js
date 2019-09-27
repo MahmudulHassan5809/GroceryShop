@@ -1,6 +1,6 @@
 if(process.env.NODE_ENV === 'production'){
  module.exports = {
- 	mongoURI: 'Your Mlab Uri',
+ 	mongoURI: 'mongodb+srv://grocery_shop:<password>@cluster0-rrhom.mongodb.net/test?retryWrites=true&w=majority',
  }
 }else{
   module.exports = {
