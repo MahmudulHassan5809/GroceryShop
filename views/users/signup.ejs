@@ -15,7 +15,7 @@
                             <input
                             type="text"
                             name="name"
-                            value="<% if (data != undefined) { -%> <%= data.name %> <% } -%>"
+                            value="<% if(typeof data != 'undefined'){-%><%=data.name%><%}-%>"
                             placeholder="Name"
                             class="login-box"/>
 
@@ -24,7 +24,7 @@
                             name="email"
                             placeholder="E-mail"
                             class="login-box"
-                            value="<% if (data != undefined) { -%> <%= data.email %> <% } -%>" />
+                            value="<% if (typeof data != 'undefined') {-%><%= data.email%><%}-%>" />
 
                             <input
                             type="password"
@@ -37,14 +37,14 @@
                             name="phone"
                             placeholder="Phone Number"
                             class="login-box"
-                            value="<% if (data != undefined) { -%> <%= data.phone %> <% } -%>" />
+                            value="<% if (typeof data != 'undefined'){-%><%=data.phone%><% }-%>" />
 
                             <textarea
                             name="address"
                             cols="28"
                             placeholder="Address"
                             class="login-box"
-                            ><%if(data!=undefined){-%><%= data.address %><%}-%></textarea>
+                            ><%if(typeof data!= 'undefined'){-%><%=data.address %><%}-%></textarea>
 
                             <input type="submit" class="login-box" name="signup_submit" value="Sign me up" />
                         </form>
