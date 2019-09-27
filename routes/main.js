@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { arrayAverage } = require('../myFUnction');
+const { arrayAverage } = require('../myFunction');
 const random = require('mongoose-simple-random');
 
 
