@@ -26,7 +26,7 @@
     "invoice-number": "^1.0.5",
     "method-override": "^3.0.0",
     "moment": "^2.24.0",
-    "mongoose": "^5.5.11",
+    "mongoose": "^5.7.5",
     "mongoose-algolia": "^1.8.0",
     "mongoose-simple-random": "^0.4.1",
     "morgan": "^1.9.1",
